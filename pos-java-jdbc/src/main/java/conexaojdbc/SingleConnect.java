@@ -2,6 +2,7 @@ package conexaojdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class SingleConnect {
 
@@ -30,6 +31,11 @@ public class SingleConnect {
 			}
 			
 		} catch (Exception e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {/*Para qualquer Problema utilizamos o rolback*/
+				e1.printStackTrace();
+			}
 			e.printStackTrace();/*Aparecer a mensagem no console se der erro*/
 		}
 		
