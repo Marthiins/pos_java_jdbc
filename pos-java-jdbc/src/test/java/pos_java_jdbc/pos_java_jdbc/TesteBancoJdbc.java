@@ -15,9 +15,8 @@ public class TesteBancoJdbc {
 		UserPosDao userPosDao = new UserPosDao();/* Objeto do Dao */
 		Userposjava userposjava = new Userposjava();/* Objeto do model */
 
-		userposjava.setId(3L);
-		userposjava.setNome("Paulo");
-		userposjava.setEmail("Paulo@gmail.com");
+		userposjava.setNome("Keke");
+		userposjava.setEmail("keke@gmail.com");
 
 		/* Setar os objetos para ter dados */
 		userPosDao.salvarBancoDados(userposjava);
