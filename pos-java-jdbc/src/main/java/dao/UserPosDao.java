@@ -3,6 +3,7 @@ package dao; // faz operação do banco de dados
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +73,26 @@ public class UserPosDao {
 		}
 		return retorno;
 
-	}
+	} /* Userposjava da classe e userposjava é do banco de dados */
 
+	public void atualizar(Userposjava userposajava) {
+		try {
+
+			String sql = "update userposjava set nome =  ? where id = " + userposajava.getId();
+
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, userposajava.getNome());
+
+			statement.execute();
+			connection.commit();
+
+		} catch (Exception e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		}
+	}
 }

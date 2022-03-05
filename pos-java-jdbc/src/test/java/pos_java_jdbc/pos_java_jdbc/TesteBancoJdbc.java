@@ -1,6 +1,5 @@
 package pos_java_jdbc.pos_java_jdbc;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
@@ -16,7 +15,7 @@ public class TesteBancoJdbc {
 		UserPosDao userPosDao = new UserPosDao();/* Objeto do Dao */
 		Userposjava userposjava = new Userposjava();/* Objeto do model */
 
-		userposjava.setId(6L);
+		userposjava.setId(3L);
 		userposjava.setNome("Paulo");
 		userposjava.setEmail("Paulo@gmail.com");
 
@@ -44,10 +43,26 @@ public class TesteBancoJdbc {
 		UserPosDao dao = new UserPosDao();/* Sempre chamar o dao */
 
 		try {
-			Userposjava userposjava = dao.buscar(6L);
+			Userposjava userposjava = dao.buscar(5L);
 
 			System.out.println(userposjava);
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void initAtualizar() {
+		try {
+			UserPosDao dao = new UserPosDao();/* Sempre chamar o dao */
+
+			Userposjava objetoBanco = dao.buscar(6L);/* Consultar objeto no banco */
+
+			objetoBanco.setNome("Nome mudado com metodo atualizar");
+
+			dao.atualizar(objetoBanco);
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

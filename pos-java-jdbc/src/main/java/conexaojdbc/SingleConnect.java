@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class SingleConnect {
 
 	private static String url = "jdbc:postgresql://localhost:5432/posjava";/* só nessa classe usar o static para ser unico */
-	private static String password = "";
+	private static String password = "kamylla2014";
 	private static String user = "postgres";
 	private static Connection connection = null; /* Pacote sql */
 
